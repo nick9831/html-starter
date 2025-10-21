@@ -732,6 +732,7 @@
                         <div class="testimonial-avatar">AM</div>
                         <div class="testimonial-info">
                             <h4>Ana Martínez</h4>
+                            <p>Abogada y consultora</p>
                         </div>
                     </div>
                     <div class="stars">⭐⭐⭐⭐⭐</div>
@@ -760,6 +761,8 @@
 
                 <p style="font-size: 1.2em; color: #16a34a; font-weight: 700; margin-top: 30px;">Ahorras 98% del costo y obtienes 100% del valor 🎯</p>
             </div>
+                <p style="margin-top: 30px; font-size: 0.95em; opacity: 0.9;">✓ Pago seguro | ✓ Garantía de 7 días | ✓ Acceso instantáneo</p>
+            </div>
         </div>
     </section>
 
@@ -768,7 +771,6 @@
             <div class="pricing-container">
                 <h2 class="section-title" style="color: white;">Tu inversión en ti mismo</h2>
                 
-                <div class="original-price">Antes: $49.99 USD</div>
                 <div class="discount-badge">🎉 Ahorra un 65% hoy</div>
                 
                 <div class="current-price">$14.99 USD</div>
@@ -888,6 +890,12 @@
     </script>
     
     <script>
+        // Función para generar un Event ID único basado en el tiempo y un número aleatorio
+        function generateEventId() {
+            // Esto genera un string único simple (timestamp + random)
+            return Date.now() + '_' + Math.random().toString(36).substring(2, 9);
+        }
+
         function toggleFaq(element) {
             const question = element;
             const answer = element.nextElementSibling;
@@ -905,11 +913,12 @@
 
         // Evento Meta Ads: Lead (Clic en el CTA de la Hero)
         function trackCTAClick(location) {
+            // OPTIMIZACIÓN: Se agrega eventID
             fbq('track', 'Lead', {
-                content_name: 'Maestria en Comunicacion - Hero CTA', // Descripción más específica
-                value: 14.99, // Se añade el valor al evento Lead
-                currency: 'USD', // Se añade la moneda
+                content_name: 'CTA Click',
                 content_category: location
+            }, {
+                eventID: generateEventId() // Genera un ID único para la deduplicación
             });
             gtag('event', 'click', {
                 'event_category': 'CTA',
@@ -919,10 +928,13 @@
 
         // Evento Meta Ads: InitiateCheckout (Clic en el botón de compra)
         function trackPurchaseClick() {
+            // OPTIMIZACIÓN: Se agrega eventID
             fbq('track', 'InitiateCheckout', {
-                content_name: 'Maestria en Comunicacion - Checkout', // Descripción más clara
+                content_name: 'Maestria en Comunicacion',
                 value: 14.99,
                 currency: 'USD'
+            }, {
+                eventID: generateEventId() // Genera un ID único para la deduplicación
             });
             gtag('event', 'begin_checkout', {
                 'value': 14.99,
