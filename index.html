@@ -207,7 +207,6 @@
             padding: 30px;
             border-radius: 12px;
             box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-            text-align: center;
             border-top: 4px solid #22c55e;
         }
 
@@ -733,7 +732,6 @@
                         <div class="testimonial-avatar">AM</div>
                         <div class="testimonial-info">
                             <h4>Ana Martínez</h4>
-                            <p>Abogada y consultora</p>
                         </div>
                     </div>
                     <div class="stars">⭐⭐⭐⭐⭐</div>
@@ -770,6 +768,7 @@
             <div class="pricing-container">
                 <h2 class="section-title" style="color: white;">Tu inversión en ti mismo</h2>
                 
+                <div class="original-price">Antes: $49.99 USD</div>
                 <div class="discount-badge">🎉 Ahorra un 65% hoy</div>
                 
                 <div class="current-price">$14.99 USD</div>
@@ -889,12 +888,6 @@
     </script>
     
     <script>
-        // Función para generar un Event ID único para deduplicación
-        function generateEventID(prefix) {
-            // Combina la marca de tiempo (en ms) con un número aleatorio para mayor unicidad
-            return prefix + '_' + Date.now() + Math.floor(Math.random() * 10000);
-        }
-
         function toggleFaq(element) {
             const question = element;
             const answer = element.nextElementSibling;
@@ -910,45 +903,31 @@
             answer.classList.toggle('active');
         }
 
-        // Evento Meta Ads: Lead (Clic en el CTA de la Hero) - MODIFICADO CON eventID
+        // Evento Meta Ads: Lead (Clic en el CTA de la Hero)
         function trackCTAClick(location) {
-            const eventId = generateEventID('LEAD'); // Genera ID: LEAD_timestamp_random
             fbq('track', 'Lead', {
-                content_name: 'CTA Click',
+                content_name: 'Maestria en Comunicacion - Hero CTA', // Descripción más específica
+                value: 14.99, // Se añade el valor al evento Lead
+                currency: 'USD', // Se añade la moneda
                 content_category: location
-            }, {
-                // ⭐️ Parámetro eventID agregado para deduplicación con CAPI
-                eventID: eventId
-            });
+            });
             gtag('event', 'click', {
                 'event_category': 'CTA',
                 'event_label': location
             });
-            
-            // Puedes usar el 'eventId' generado para enviarlo también a tu servidor
-            // a través de un campo oculto o una cookie, si aún no lo haces con la API.
-            console.log('Lead EventID (Píxel):', eventId);
         }
 
-        // Evento Meta Ads: InitiateCheckout (Clic en el botón de compra) - MODIFICADO CON eventID
+        // Evento Meta Ads: InitiateCheckout (Clic en el botón de compra)
         function trackPurchaseClick() {
-            const eventId = generateEventID('IC'); // Genera ID: IC_timestamp_random
             fbq('track', 'InitiateCheckout', {
-                content_name: 'Maestria en Comunicacion',
+                content_name: 'Maestria en Comunicacion - Checkout', // Descripción más clara
                 value: 14.99,
                 currency: 'USD'
-            }, {
-                // ⭐️ Parámetro eventID agregado para deduplicación con CAPI
-                eventID: eventId
-            });
+            });
             gtag('event', 'begin_checkout', {
                 'value': 14.99,
                 'currency': 'USD'
             });
-
-            // Puedes usar el 'eventId' generado para enviarlo también a tu servidor
-            // a través de un campo oculto o una cookie, si aún no lo haces con la API.
-            console.log('InitiateCheckout EventID (Píxel):', eventId);
         }
     </script>
 </body>
