@@ -67,20 +67,35 @@
             z-index: 1;
         }
 
+        /* H1 - Título principal */
         .hero h1 {
             font-size: 3em;
             font-weight: 800;
             margin-bottom: 20px;
             line-height: 1.2;
-            /* La animación se mantiene pero se podría posponer para más velocidad */
             animation: fadeInUp 0.8s ease; 
         }
 
+        /* H2 - Subtítulo */
         .hero .subtitle {
             font-size: 1.3em;
             margin-bottom: 30px;
             opacity: 0.95;
             animation: fadeInUp 0.8s ease 0.2s backwards;
+        }
+
+        /* Contenedor para la imagen del producto */
+        .product-image-container {
+            margin: 30px auto;
+            max-width: 300px;
+            border: 4px solid #22c55e;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .product-image-container img {
+            display: block;
+            width: 100%;
+            height: auto;
         }
 
         .pain-points {
@@ -97,11 +112,17 @@
             border-radius: 8px;
             backdrop-filter: blur(10px);
             border: 1px solid rgba(34, 197, 94, 0.3);
+            /* Corregir contraste en accesibilidad si el texto es muy claro en fondo verde */
+            color: #fff; /* Asegurar que el texto sea blanco o muy claro */
         }
 
-        .pain-point p {
+        /* El contenido dentro de .pain-point debe ser un h3 para la jerarquía */
+        .pain-point h3 {
             font-weight: 500;
+            margin: 0;
+            font-size: 1em;
         }
+
 
         /* CTA Button */
         .btn {
@@ -139,6 +160,7 @@
             background: white;
         }
 
+        /* Los títulos de sección usan H2 */
         .section-title {
             font-size: 2.5em;
             margin-bottom: 50px;
@@ -165,6 +187,7 @@
             background: linear-gradient(135deg, rgba(34, 197, 94, 0.1) 0%, rgba(34, 197, 94, 0.15) 100%);
         }
 
+        /* H3 para los títulos de las tarjetas de valor */
         .value-card h3 {
             color: #16a34a;
             margin-bottom: 15px;
@@ -203,10 +226,13 @@
             margin-bottom: 15px;
         }
 
-        .bonus-card h4 {
+        /* H3 o H4 para los bonos */
+        .bonus-card h3, .bonus-card h4 {
             color: #1a1a1a;
             margin-bottom: 10px;
         }
+        .bonus-card h4 { font-size: 1em; } /* Usamos h4 si h3 se usa en value-card */
+
 
         .bonus-card p {
             color: #666;
@@ -341,10 +367,12 @@
             border: 2px solid #22c55e;
         }
 
-        .comparison-item h4 {
+        /* H3 para los títulos de la tabla de comparación */
+        .comparison-item h3, .comparison-item h4 {
             margin-bottom: 15px;
             font-size: 1.3em;
         }
+        .comparison-item h4 { font-size: 1em; } /* Usamos h4 si h3 se usa para la comparación */
 
         .comparison-item p {
             text-align: left;
@@ -448,11 +476,16 @@
             overflow: hidden;
         }
 
+        /* H3 para las preguntas frecuentes */
+        .faq-question span:first-child {
+            font-size: 1em;
+            font-weight: 600;
+        }
+
         .faq-question {
             padding: 20px;
             background: #f8f9fa;
             cursor: pointer;
-            font-weight: 600;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -510,6 +543,7 @@
             margin: 0 auto;
         }
 
+        /* H2 o H3 para el título del autor */
         .author-card h3 {
             font-size: 1.8em;
             margin-bottom: 15px;
@@ -599,264 +633,273 @@
     </style>
 </head>
 <body>
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1>¿Estás pagando el precio de tu silencio?</h1>
-                <p class="subtitle">No permitas que el miedo a hablar te cueste tu futuro profesional</p>
-                
-                <div class="pain-points">
-                    <div class="pain-point">
-                        <p>👥 Has visto cómo tus colegas ascienden más rápido</p>
+    <main>
+
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    
+                    <h1>¿Estás pagando el precio de tu silencio?</h1>
+                    
+                    <h2 class="subtitle">No permitas que el miedo a hablar te cueste tu futuro profesional</h2>
+                    
+                    <div class="product-image-container">
+                        <img src="images/Diseño_sin_título__7_-removebg-preview (1).webp" alt="Maestría en Comunicación: Ebook y Bonos" loading="eager">
                     </div>
-                    <div class="pain-point">
-                        <p>💡 Tus propuestas no tienen el impacto que merecen</p>
-                    </div>
-                    <div class="pain-point">
-                        <p>⚠️ Te aterra sonar obsoleto o cometer un error público</p>
-                    </div>
-                </div>
 
-                <a href="#pricing" class="btn" onclick="trackCTAClick('hero')">Obtener acceso ahora</a>
-            </div>
-        </div>
-    </section>
-
-    <section class="what-youll-get">
-        <div class="container">
-            <h2 class="section-title">La solución: desbloquea tu maestría en comunicación</h2>
-            <p style="text-align: center; margin-bottom: 40px; font-size: 1.1em; color: #666; max-width: 700px; margin-left: auto; margin-right: auto;">La solución no es solo saber qué decir, sino tener la seguridad para decirlo. En menos de 7 días, superarás ese obstáculo.</p>
-            
-            <div class="value-grid">
-                <div class="value-card">
-                    <h3>🔐 Confianza inquebrantable</h3>
-                    <p>Desbloquea una mentalidad inquebrantable para comunicar con libertad y seguridad. Tu experiencia finalmente será valorada como merece.</p>
-                </div>
-                <div class="value-card">
-                    <h3>📚 Comunicación profesional y fluida</h3>
-                    <p>Domina las reglas detrás de una comunicación que impacta. Más allá de la escritura, aprende la estrategia para que tus palabras siempre conecten.</p>
-                </div>
-                <div class="value-card">
-                    <h3>💼 Copywriting: tus palabras como activos</h3>
-                    <p>Convierte tus palabras en poder de negocio. Aprende estrategias de copywriting, cierra tratos y eleva tu impacto profesional en tu campo.</p>
-                </div>
-                <div class="value-card">
-                    <h3>📖 Estructura y autoridad</h3>
-                    <p>Articula tus ideas con la solidez que exigen los entornos competitivos. Tus documentos y discursos proyectarán la autoridad que tu experiencia merece.</p>
-                </div>
-                <div class="value-card">
-                    <h3>🌟 Marca personal irremplazable</h3>
-                    <p>Construye una marca personal tan auténtica y poderosa que ninguna inteligencia artificial pueda replicar. Sé verdaderamente irremplazable.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="bonuses">
-        <div class="container">
-            <h2 class="section-title">🎁 Bonos premium valorados en $75 USD</h2>
-            <p style="text-align: center; margin-bottom: 50px; font-size: 1.1em; color: #666;">Hoy completamente gratis al adquirir el ebook</p>
-            
-            <div class="bonuses-grid">
-                <div class="bonus-card">
-                    <div class="icon">📝</div>
-                    <h4>Plantillas maestras para comunicación persuasiva</h4>
-                    <p>¿Quieres vender, convencer o influir? Conecta, persuade y convierte cada palabra en acción. ¡Adiós al bloqueo creativo!</p>
-                    <div class="bonus-value">$30 USD</div>
-                </div>
-                <div class="bonus-card">
-                    <div class="icon">🎓</div>
-                    <h4>Guía pro: redacción académica y profesional impecable</h4>
-                    <p>La excelencia en tus documentos está garantizada. Asegura la credibilidad y las mejores calificaciones en cualquier entorno.</p>
-                    <div class="bonus-value">$25 USD</div>
-                </div>
-                <div class="bonus-card">
-                    <div class="icon">💬</div>
-                    <h4>Frases clave para conversaciones de alto impacto</h4>
-                    <p>Domina cualquier interacción verbal. Proyecta confianza, asertividad y liderazgo, dejando una impresión inolvidable en cada conversación.</p>
-                    <div class="bonus-value">$20 USD</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="testimonials">
-        <div class="container">
-            <h2 class="section-title">Transformaciones reales de nuestros clientes</h2>
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <div class="testimonial-header">
-                        <div class="testimonial-avatar">MG</div>
-                        <div class="testimonial-info">
-                            <h4>María García</h4>
-                            <p>Freelancer</p>
+                    <div class="pain-points">
+                        <div class="pain-point">
+                            <h3>👥 Has visto cómo tus colegas ascienden más rápido</h3>
+                        </div>
+                        <div class="pain-point">
+                            <h3>💡 Tus propuestas no tienen el impacto que merecen</h3>
+                        </div>
+                        <div class="pain-point">
+                            <h3>⚠️ Te aterra sonar obsoleto o cometer un error público</h3>
                         </div>
                     </div>
-                    <div class="stars">⭐⭐⭐⭐⭐</div>
-                    <p>"Antes tenía miedo a presentar mis proyectos. Apliqué las técnicas y mis clientes pasaron de dudar a confiar completamente en mí. Mis propuestas ahora son aceptadas a la primera."</p>
-                    <div class="transformation-highlight">📈 Resultado: duplicó sus ingresos en 3 meses</div>
-                </div>
 
-                <div class="testimonial-card">
-                    <div class="testimonial-header">
-                        <div class="testimonial-avatar">CL</div>
-                        <div class="testimonial-info">
-                            <h4>Carlos López</h4>
-                            <p>Ejecutivo Senior</p>
+                    <a href="#pricing" class="btn" onclick="trackCTAClick('hero')">Obtener acceso ahora</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="what-youll-get">
+            <div class="container">
+                <h2 class="section-title">La solución: desbloquea tu maestría en comunicación</h2>
+                <p style="text-align: center; margin-bottom: 40px; font-size: 1.1em; color: #666; max-width: 700px; margin-left: auto; margin-right: auto;">La solución no es solo saber qué decir, sino tener la seguridad para decirlo. En menos de 7 días, superarás ese obstáculo.</p>
+                
+                <div class="value-grid">
+                    <div class="value-card">
+                        <h3>🔐 Confianza inquebrantable</h3>
+                        <p>Desbloquea una mentalidad inquebrantable para comunicar con libertad y seguridad. Tu experiencia finalmente será valorada como merece.</p>
+                    </div>
+                    <div class="value-card">
+                        <h3>📚 Comunicación profesional y fluida</h3>
+                        <p>Domina las reglas detrás de una comunicación que impacta. Más allá de la escritura, aprende la estrategia para que tus palabras siempre conecten.</p>
+                    </div>
+                    <div class="value-card">
+                        <h3>💼 Copywriting: tus palabras como activos</h3>
+                        <p>Convierte tus palabras en poder de negocio. Aprende estrategias de copywriting, cierra tratos y eleva tu impacto profesional en tu campo.</p>
+                    </div>
+                    <div class="value-card">
+                        <h3>📖 Estructura y autoridad</h3>
+                        <p>Articula tus ideas con la solidez que exigen los entornos competitivos. Tus documentos y discursos proyectarán la autoridad que tu experiencia merece.</p>
+                    </div>
+                    <div class="value-card">
+                        <h3>🌟 Marca personal irremplazable</h3>
+                        <p>Construye una marca personal tan auténtica y poderosa que ninguna inteligencia artificial pueda replicar. Sé verdaderamente irremplazable.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bonuses">
+            <div class="container">
+                <h2 class="section-title">🎁 Bonos premium valorados en $75 USD</h2>
+                <p style="text-align: center; margin-bottom: 50px; font-size: 1.1em; color: #666;">Hoy completamente gratis al adquirir el ebook</p>
+                
+                <div class="bonuses-grid">
+                    <div class="bonus-card">
+                        <div class="icon">📝</div>
+                        <h3>Plantillas maestras para comunicación persuasiva</h3>
+                        <p>¿Quieres vender, convencer o influir? Conecta, persuade y convierte cada palabra en acción. ¡Adiós al bloqueo creativo!</p>
+                        <div class="bonus-value">$30 USD</div>
+                    </div>
+                    <div class="bonus-card">
+                        <div class="icon">🎓</div>
+                        <h3>Guía pro: redacción académica y profesional impecable</h3>
+                        <p>La excelencia en tus documentos está garantizada. Asegura la credibilidad y las mejores calificaciones en cualquier entorno.</p>
+                        <div class="bonus-value">$25 USD</div>
+                    </div>
+                    <div class="bonus-card">
+                        <div class="icon">💬</div>
+                        <h3>Frases clave para conversaciones de alto impacto</h3>
+                        <p>Domina cualquier interacción verbal. Proyecta confianza, asertividad y liderazgo, dejando una impresión inolvidable en cada conversación.</p>
+                        <div class="bonus-value">$20 USD</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonials">
+            <div class="container">
+                <h2 class="section-title">Transformaciones reales de nuestros clientes</h2>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <div class="testimonial-header">
+                            <div class="testimonial-avatar">MG</div>
+                            <div class="testimonial-info">
+                                <h4>María García</h4>
+                                <p>Freelancer</p>
+                            </div>
+                        </div>
+                        <div class="stars">⭐⭐⭐⭐⭐</div>
+                        <p>"Antes tenía miedo a presentar mis proyectos. Apliqué las técnicas y mis clientes pasaron de dudar a confiar completamente en mí. Mis propuestas ahora son aceptadas a la primera."</p>
+                        <div class="transformation-highlight">📈 Resultado: duplicó sus ingresos en 3 meses</div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-header">
+                            <div class="testimonial-avatar">CL</div>
+                            <div class="testimonial-info">
+                                <h4>Carlos López</h4>
+                                <p>Ejecutivo Senior</p>
+                            </div>
+                        </div>
+                        <div class="stars">⭐⭐⭐⭐⭐</div>
+                        <p>"Después de implementar lo aprendido, mi jefe notó el cambio inmediato en mis presentaciones. Pasé de ser un ejecutivo más a ser alguien que la gente quiere escuchar. Me ascendieron hace poco."</p>
+                        <div class="transformation-highlight">📈 Resultado: ascenso en 2 meses de aplicación</div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-header">
+                            <div class="testimonial-avatar">AM</div>
+                            <div class="testimonial-info">
+                                <h4>Ana Martínez</h4>
+                                <p>Abogada y consultora</p>
+                            </div>
+                        </div>
+                        <div class="stars">⭐⭐⭐⭐⭐</div>
+                        <p>"Entendí finalmente cómo persuadir sin ser agresiva. Mis clientes me respetan más. Las estrategias son claras y funcionan en la vida real. Mi credibilidad en la sala se multiplicó."</p>
+                        <div class="transformation-highlight">📈 Resultado: 40% más clientes recurrentes</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="value-comparison">
+            <div class="container">
+                <div class="comparison-content">
+                    <h2 class="section-title">¿Por qué este ebook es una ganga?</h2>
+                    
+                    <div class="comparison-table">
+                        <div class="comparison-item expensive">
+                            <h3>❌ Coaching 1-a-1 tradicional</h3>
+                            <p>• Sesiones: $100-200 USD cada una<br>• Mínimo 5-10 sesiones: $500-2000 USD<br>• Tiempo: semanas o meses<br>• Acceso limitado<br>• Depende de disponibilidad del coach</p>
+                        </div>
+                        <div class="comparison-item cheap">
+                            <h3>✓ Este ebook + bonos</h3>
+                            <p>• Precio único: $14.99 USD<br>• Contenido equivalente a $1000+ USD<br>• Acceso inmediato y para siempre<br>• Puedes revisar cuantas veces quieras<br>• Tu ritmo, tu tiempo, tu velocidad</p>
                         </div>
                     </div>
-                    <div class="stars">⭐⭐⭐⭐⭐</div>
-                    <p>"Después de implementar lo aprendido, mi jefe notó el cambio inmediato en mis presentaciones. Pasé de ser un ejecutivo más a ser alguien que la gente quiere escuchar. Me ascendieron hace poco."</p>
-                    <div class="transformation-highlight">📈 Resultado: ascenso en 2 meses de aplicación</div>
-                </div>
 
-                <div class="testimonial-card">
-                    <div class="testimonial-header">
-                        <div class="testimonial-avatar">AM</div>
-                        <div class="testimonial-info">
-                            <h4>Ana Martínez</h4>
-                            <p>Abogada y consultora</p>
-                        </div>
+                    <p style="font-size: 1.2em; color: #16a34a; font-weight: 700; margin-top: 30px;">Ahorras 98% del costo y obtienes 100% del valor 🎯</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="pricing" id="pricing">
+            <div class="container">
+                <div class="pricing-container">
+                    <h2 class="section-title" style="color: white;">Tu inversión en ti mismo</h2>
+                    
+                    <div class="discount-badge">🎉 Ahorra un 65% hoy</div>
+                    
+                    <div class="current-price">$14.99 USD</div>
+                    <div class="price-subtitle">Pago único. Acceso ilimitado. Para siempre.</div>
+
+                    <div class="value-proposition">
+                        <h4>Lo que recibes:</h4>
+                        <p>Un ebook completo con 5 módulos de maestría en comunicación + 3 bonos premium valorados en $75 USD. Todo en PDF, acceso instantáneo, garantía de 7 días.</p>
                     </div>
-                    <div class="stars">⭐⭐⭐⭐⭐</div>
-                    <p>"Entendí finalmente cómo persuadir sin ser agresiva. Mis clientes me respetan más. Las estrategias son claras y funcionan en la vida real. Mi credibilidad en la sala se multiplicó."</p>
-                    <div class="transformation-highlight">📈 Resultado: 40% más clientes recurrentes</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="value-comparison">
-        <div class="container">
-            <div class="comparison-content">
-                <h2 class="section-title">¿Por qué este ebook es una ganga?</h2>
-                
-                <div class="comparison-table">
-                    <div class="comparison-item expensive">
-                        <h4>❌ Coaching 1-a-1 tradicional</h4>
-                        <p>• Sesiones: $100-200 USD cada una<br>• Mínimo 5-10 sesiones: $500-2000 USD<br>• Tiempo: semanas o meses<br>• Acceso limitado<br>• Depende de disponibilidad del coach</p>
+                    
+                    <div class="price-features">
+                        <p>Ebook completo + 5 módulos esenciales</p>
+                        <p>3 bonos premium gratis ($75 USD valor)</p>
+                        <p>Acceso inmediato por email</p>
+                        <p>Garantía de 7 días (reembolso 100%)</p>
+                        <p>Acceso ilimitado y para siempre</p>
                     </div>
-                    <div class="comparison-item cheap">
-                        <h4>✓ Este ebook + bonos</h4>
-                        <p>• Precio único: $14.99 USD<br>• Contenido equivalente a $1000+ USD<br>• Acceso inmediato y para siempre<br>• Puedes revisar cuantas veces quieras<br>• Tu ritmo, tu tiempo, tu velocidad</p>
+
+                    <a href="https://pay.hotmart.com/D101043754X?checkoutMode=10&hideBillet=1&hotfeature=51&_hi=eyJjaWQiOiIxNzM5MzkyNDI5ODIwMTQyNjY2MTAxNjg3MTI0MjQwIiwiYmlkIjoiMTczOTM5MjQyOTgyMDE0MjY2NjEwMTY4NzEyNDI0MCIsInNpZCI6ImM1N2QxYzg5YTFjMzQwNmI4OWRhNzIzMTczNzA1NmJkIn0=.1760995309937&bid=1760995312222" class="btn" onclick="trackPurchaseClick()">Sí, quiero este valor - $14.99 USD</a>
+                    
+                    <p style="margin-top: 30px; font-size: 0.95em; opacity: 0.9;">✓ Pago seguro | ✓ Garantía de 7 días | ✓ Acceso instantáneo</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="author">
+            <div class="container">
+                <div class="author-card">
+                    <img src="./images/imagen_sin_aro_de_luz.jpg" alt="Foto de Nicolás Castaño, autor del ebook" class="author-image" loading="lazy">
+                    <h3>Sobre el autor: Nicolás Castaño</h3>
+                    <p>Sé exactamente lo que es luchar por una comunicación de impacto. Desarrollé estas herramientas probadas porque a mí me funcionaron. Mi misión es clara: que domines tus palabras y eleves tu influencia.</p>
+                    <p><strong>Juntos, al siguiente nivel.</strong></p>
+                    <div class="guarantee">
+                        <p>🎯 Mi promesa: si en 7 días no ves el valor, devolvemos tu dinero. Sin preguntas. Tu confianza es lo primero.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="faq">
+            <div class="container">
+                <h2 class="section-title">Preguntas frecuentes</h2>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <h3><span>¿No tengo tiempo para gramática compleja. ¿Qué hay de esto?</span></h3>
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>¡Perfecto! Este ebook va directo al grano: lecciones prácticas que aplicas en minutos. Gana seguridad y resultados sin perder tu valioso tiempo.</p>
                     </div>
                 </div>
 
-                <p style="font-size: 1.2em; color: #16a34a; font-weight: 700; margin-top: 30px;">Ahorras 98% del costo y obtienes 100% del valor 🎯</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="pricing" id="pricing">
-        <div class="container">
-            <div class="pricing-container">
-                <h2 class="section-title" style="color: white;">Tu inversión en ti mismo</h2>
-                
-                <div class="discount-badge">🎉 Ahorra un 65% hoy</div>
-                
-                <div class="current-price">$14.99 USD</div>
-                <div class="price-subtitle">Pago único. Acceso ilimitado. Para siempre.</div>
-
-                <div class="value-proposition">
-                    <h4>Lo que recibes:</h4>
-                    <p>Un ebook completo con 5 módulos de maestría en comunicación + 3 bonos premium valorados en $75 USD. Todo en PDF, acceso instantáneo, garantía de 7 días.</p>
-                </div>
-                
-                <div class="price-features">
-                    <p>Ebook completo + 5 módulos esenciales</p>
-                    <p>3 bonos premium gratis ($75 USD valor)</p>
-                    <p>Acceso inmediato por email</p>
-                    <p>Garantía de 7 días (reembolso 100%)</p>
-                    <p>Acceso ilimitado y para siempre</p>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <h3><span>¿Ya intenté aprender y nada funciona. ¿Será diferente?</span></h3>
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Olvídate de lo que no sirvió. Este ebook contiene métodos probados con herramientas que SÍ te dan impacto real. ¡Esta vez es diferente!</p>
+                    </div>
                 </div>
 
-                <a href="https://pay.hotmart.com/D101043754X?checkoutMode=10&hideBillet=1&hotfeature=51&_hi=eyJjaWQiOiIxNzM5MzkyNDI5ODIwMTQyNjY2MTAxNjg3MTI0MjQwIiwiYmlkIjoiMTczOTM5MjQyOTgyMDE0MjY2NjEwMTY4NzEyNDI0MCIsInNpZCI6ImM1N2QxYzg5YTFjMzQwNmI4OWRhNzIzMTczNzA1NmJkIn0=.1760995309937&bid=1760995312222" class="btn" onclick="trackPurchaseClick()">Sí, quiero este valor - $14.99 USD</a>
-                
-                <p style="margin-top: 30px; font-size: 0.95em; opacity: 0.9;">✓ Pago seguro | ✓ Garantía de 7 días | ✓ Acceso instantáneo</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="author">
-        <div class="container">
-            <div class="author-card">
-                <img src="./images/imagen_sin_aro_de_luz.jpg" alt="Foto de Nicolás Castaño, autor del ebook" class="author-image" loading="lazy">
-                <h3>Sobre el autor: Nicolás Castaño</h3>
-                <p>Sé exactamente lo que es luchar por una comunicación de impacto. Desarrollé estas herramientas probadas porque a mí me funcionaron. Mi misión es clara: que domines tus palabras y eleves tu influencia.</p>
-                <p><strong>Juntos, al siguiente nivel.</strong></p>
-                <div class="guarantee">
-                    <p>🎯 Mi promesa: si en 7 días no ves el valor, devolvemos tu dinero. Sin preguntas. Tu confianza es lo primero.</p>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <h3><span>¿Me da miedo hablar o escribir con autoridad. ¿Esto me ayudará?</span></h3>
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>No es 'otro ebook', es tu guía práctica para transformar el miedo en poder. Te dará la confianza y técnicas para que tus ideas brillen, sean respetadas y proyectes la autoridad que mereces. ¡Comunica sin límites!</p>
+                    </div>
                 </div>
-            </div>
-        </div>
-    </section>
 
-    <section class="faq">
-        <div class="container">
-            <h2 class="section-title">Preguntas frecuentes</h2>
-            
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    <span>¿No tengo tiempo para gramática compleja. ¿Qué hay de esto?</span>
-                    <span class="faq-icon">▼</span>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <h3><span>¿Cómo accedo después de comprar?</span></h3>
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Acceso instantáneo por email de Hotmart. Descarga en PDF directamente a tu dispositivo.</p>
+                    </div>
                 </div>
-                <div class="faq-answer">
-                    <p>¡Perfecto! Este ebook va directo al grano: lecciones prácticas que aplicas en minutos. Gana seguridad y resultados sin perder tu valioso tiempo.</p>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <h3><span>¿Funciona en varios dispositivos?</span></h3>
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Sí, sin límites de dispositivos. Léelo donde prefieras: computadora, tablet, teléfono. Es tuyo para siempre.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <h3><span>¿Qué pasa si no me gusta?</span></h3>
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Tienes garantía de 7 días para pedir tu dinero de vuelta. Sin preguntas, sin complicaciones. Tu satisfacción es lo primero.</p>
+                    </div>
                 </div>
             </div>
+        </section>
 
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    <span>¿Ya intenté aprender y nada funciona. ¿Será diferente?</span>
-                    <span class="faq-icon">▼</span>
-                </div>
-                <div class="faq-answer">
-                    <p>Olvídate de lo que no sirvió. Este ebook contiene métodos probados con herramientas que SÍ te dan impacto real. ¡Esta vez es diferente!</p>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    <span>¿Me da miedo hablar o escribir con autoridad. ¿Esto me ayudará?</span>
-                    <span class="faq-icon">▼</span>
-                </div>
-                <div class="faq-answer">
-                    <p>No es 'otro ebook', es tu guía práctica para transformar el miedo en poder. Te dará la confianza y técnicas para que tus ideas brillen, sean respetadas y proyectes la autoridad que mereces. ¡Comunica sin límites!</p>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    <span>¿Cómo accedo después de comprar?</span>
-                    <span class="faq-icon">▼</span>
-                </div>
-                <div class="faq-answer">
-                    <p>Acceso instantáneo por email de Hotmart. Descarga en PDF directamente a tu dispositivo.</p>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    <span>¿Funciona en varios dispositivos?</span>
-                    <span class="faq-icon">▼</span>
-                </div>
-                <div class="faq-answer">
-                    <p>Sí, sin límites de dispositivos. Léelo donde prefieras: computadora, tablet, teléfono. Es tuyo para siempre.</p>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    <span>¿Qué pasa si no me gusta?</span>
-                    <span class="faq-icon">▼</span>
-                </div>
-                <div class="faq-answer">
-                    <p>Tienes garantía de 7 días para pedir tu dinero de vuelta. Sin preguntas, sin complicaciones. Tu satisfacción es lo primero.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
+    </main>
     <footer>
         <p>&copy; 2025 Nicolás Castaño. Todos los derechos reservados.</p>
         <p style="margin-top: 10px; font-size: 0.9em; opacity: 0.8;">Protegemos tu privacidad | Términos de servicio | Política de reembolso</p>
