@@ -83,6 +83,19 @@
             animation: fadeInUp 0.8s ease 0.2s backwards;
         }
 
+        /* Estilos para la imagen del ebook en la sección Hero */
+        .hero-ebook-image {
+            max-width: 300px; /* Ajusta el tamaño según sea necesario */
+            height: auto;
+            margin: 30px auto; /* Centra la imagen y añade espacio */
+            display: block;
+            border-radius: 8px;
+            /* Eliminamos el borde verde y la sombra de la imagen principal */
+            border: none; /* <--- MODIFICACIÓN CLAVE 1 */
+            box-shadow: none; /* <--- MODIFICACIÓN CLAVE 2 */
+        }
+
+
         .pain-points {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -516,7 +529,7 @@
             color: #1a1a1a;
         }
         
-        /* Modificación 1: Eliminar el borde verde y la sombra de la imagen del autor */
+        /* Modificación 3: Eliminar el borde verde y la sombra de la imagen del autor */
         .author-image {
             width: 150px;
             height: 150px;
@@ -524,6 +537,8 @@
             object-fit: cover;
             margin-bottom: 20px;
             /* Se eliminan: border: 4px solid #22c55e; y box-shadow */
+            border: none; /* <--- MODIFICACIÓN CLAVE 3 */
+            box-shadow: none; /* <--- MODIFICACIÓN CLAVE 4 */
         }
 
         .author-card p {
@@ -603,6 +618,8 @@
             <div class="hero-content">
                 <h1>¿Estás pagando el precio de tu silencio?</h1>
                 <p class="subtitle">No permitas que el miedo a hablar te cueste tu futuro profesional</p>
+                
+                <img src="https://i.imgur.com/image_04fbe8.jpg" alt="Portada del ebook Maestría en Comunicación" class="hero-ebook-image" loading="eager">
                 
                 <div class="pain-points">
                     <div class="pain-point">
@@ -779,6 +796,8 @@
     <section class="author">
         <div class="container">
             <div class="author-card">
+                <img src="https://i.imgur.com/image_04fbe8.jpg" alt="Foto de Nicolás Castaño, autor del ebook" class="author-image" loading="lazy">
+                
                 <h3>Sobre el autor: Nicolás Castaño</h3>
                 <p>Sé exactamente lo que es luchar por una comunicación de impacto. Desarrollé estas herramientas probadas porque a mí me funcionaron. Mi misión es clara: que domines tus palabras y eleves tu influencia.</p>
                 <p><strong>Juntos, al siguiente nivel.</strong></p>
@@ -819,7 +838,7 @@
                     <span class="faq-icon">▼</span>
                 </div>
                 <div class="faq-answer">
-                    <p>No es 'otro ebook', es tu guía práctica para transformar el miedo en poder. Te dará la confianza y técnicas para que tus ideas brillen, sean respetadas y proyectes la autoridad que mereces. ¡Comunica sin límites!</p>
+                    <p>No es 'otro ebook', es tu guía práctica para transformar el miedo en poder. Te dará la confianza y técnicas para que tus ideas brillen, sean respetadas y proyectes la autoridad que merece. ¡Comunica sin límites!</p>
                 </div>
             </div>
 
