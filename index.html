@@ -22,7 +22,6 @@
     fbq('track', 'PageView');
     </script>
     <style>
-        /* La etiqueta STYLE no fue modificada ya que contiene CSS crítico */
         * {
             margin: 0;
             padding: 0;
@@ -73,7 +72,6 @@
             font-weight: 800;
             margin-bottom: 20px;
             line-height: 1.2;
-            /* Si el problema persiste, comenta esta línea: */
             animation: fadeInUp 0.8s ease; 
         }
 
@@ -81,7 +79,6 @@
             font-size: 1.3em;
             margin-bottom: 30px;
             opacity: 0.95;
-            /* Si el problema persiste, comenta esta línea: */
             animation: fadeInUp 0.8s ease 0.2s backwards;
         }
 
@@ -592,6 +589,7 @@
                 <h1>¿Estás pagando el precio de tu silencio?</h1>
                 <p class="subtitle">No permitas que el miedo a hablar te cueste tu futuro profesional</p>
                 
+                <img src="/images/Diseño_sin_título__7_-removebg-preview (1).webp" alt="Ebook Maestría en comunicación y Bonos" style="max-width: 250px; margin: 20px auto 40px; display: block; border-radius: 8px; box-shadow: 0 5px 25px rgba(34, 197, 94, 0.4); border: 3px solid #22c55e;">
                 <div class="pain-points">
                     <div class="pain-point">
                         <p>👥 Has visto cómo tus colegas ascienden más rápido</p>
@@ -693,7 +691,7 @@
                         </div>
                     </div>
                     <div class="stars">⭐⭐⭐⭐⭐</div>
-                    <p>"Después de implementar lo aprendido, mi jefe notó el cambio inmediato en mis presentaciones. Pasé de ser un ejecutivo más a ser alguien que la gente quiere escuchar. Me ascendieron hace poco."</p>
+                    <p>"Después de implementar lo aprendido, mi jefe notó el cambio inmediato en mis presentaciones. Me ascendieron hace poco."</p>
                     <div class="transformation-highlight">📈 Resultado: ascenso en 2 meses de aplicación</div>
                 </div>
 
@@ -706,7 +704,7 @@
                         </div>
                     </div>
                     <div class="stars">⭐⭐⭐⭐⭐</div>
-                    <p>"Entendí finalmente cómo persuadir sin ser agresiva. Mis clientes me respetan más. Las estrategias son claras y funcionan en la vida real. Mi credibilidad en la sala se multiplicó."</p>
+                    <p>"Entendí finalmente cómo persuadir sin ser agresiva. Mis clientes me respetan más. Las estrategias son claras y funcionan en la vida real."</p>
                     <div class="transformation-highlight">📈 Resultado: 40% más clientes recurrentes</div>
                 </div>
             </div>
@@ -739,6 +737,7 @@
             <div class="pricing-container">
                 <h2 class="section-title" style="color: white;">Tu inversión en ti mismo</h2>
                 
+                <img src="/images/Diseño_sin_título__7_-removebg-preview (1).webp" alt="Ebook Maestría en comunicación y Bonos" style="max-width: 180px; margin: 0 auto 20px; display: block; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.5); border: 2px solid white;">
                 <div class="discount-badge">🎉 Ahorra un 65% hoy</div>
                 
                 <div class="current-price">$14.99 USD</div>
@@ -845,11 +844,9 @@
                 const answer = item.nextElementSibling;
                 const icon = item.querySelector('.faq-icon');
                 
-                // Toggle active class on question and answer
                 item.classList.toggle('active');
                 answer.classList.toggle('active');
 
-                // Rotate icon
                 if (item.classList.contains('active')) {
                     icon.style.transform = 'rotate(180deg)';
                 } else {
@@ -858,14 +855,12 @@
             });
         });
 
-        // Funciones de trackeo (asumiendo que existen)
+        // Funciones de trackeo
         function trackCTAClick(location) {
             console.log('CTA Click tracked at:', location);
-            // Aquí iría tu código de Google Analytics o Facebook para registrar el evento
         }
         function trackPurchaseClick() {
              console.log('Purchase Click tracked');
-            // Aquí iría tu código de Google Analytics o Facebook para registrar el evento de compra
         }
     </script>
 </body>
