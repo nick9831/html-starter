@@ -208,7 +208,6 @@
             border-radius: 12px;
             box-shadow: 0 5px 20px rgba(0,0,0,0.08);
             border-top: 4px solid #22c55e;
-            text-align: center;
         }
 
         .bonus-card .icon {
@@ -806,6 +805,10 @@
                     <p>🎯 Mi promesa: si en 7 días no ves el valor, devolvemos tu dinero. Sin preguntas. Tu confianza es lo primero.</p>
                 </div>
             </div>
+            <img src="images/Foto_Nicolas_Castano.webp" 
+                 alt="Retrato de Nicolás Castaño, el autor del ebook"
+                 class="author-image"
+                 loading="lazy">
         </div>
     </section>
 
@@ -903,20 +906,18 @@
             question.classList.toggle('active');
             answer.classList.toggle('active');
         }
-
-        // ESTA FUNCIÓN FUE AÑADIDA
+        
+        // Función para generar un Event ID único para Meta Ads
         function generateEventId() {
-            // Genera un identificador único basado en el tiempo y un número aleatorio
-            return Date.now().toString() + Math.random().toString(36).substring(2, 15);
+            // Genera un ID basado en el tiempo y un número aleatorio para mayor unicidad
+            return 'web_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
         }
 
-        // Evento Meta Ads: Lead (Clic en el CTA de la Hero) - MODIFICADO
+        // Evento Meta Ads: Lead (Clic en el CTA de la Hero)
         function trackCTAClick(location) {
-            const eventId = generateEventId();
             fbq('track', 'Lead', {
                 content_name: 'CTA Click',
-                content_category: location,
-                event_id: eventId // <<-- AÑADIDO
+                content_category: location
             });
             gtag('event', 'click', {
                 'event_category': 'CTA',
@@ -924,14 +925,16 @@
             });
         }
 
-        // Evento Meta Ads: InitiateCheckout (Clic en el botón de compra) - MODIFICADO
+        // Evento Meta Ads: InitiateCheckout (Clic en el botón de compra)
         function trackPurchaseClick() {
+            // Generamos el event_id ÚNICO aquí y lo añadimos a los parámetros
             const eventId = generateEventId();
+            
             fbq('track', 'InitiateCheckout', {
                 content_name: 'Maestria en Comunicacion',
                 value: 14.99,
                 currency: 'USD',
-                event_id: eventId // <<-- AÑADIDO
+                event_id: eventId  // <---- CORRECCIÓN AÑADIDA
             });
             gtag('event', 'begin_checkout', {
                 'value': 14.99,
